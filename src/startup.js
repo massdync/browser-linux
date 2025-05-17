@@ -133,7 +133,7 @@ if(window.params.has("embed") && window.params.get("embed") == "true") {
     document.body.append(document.getElementById("clear_save"));
     document.body.append(document.getElementById("autosave_toggle"));
     */
-
+    document.body.style.overflow = 'hidden';
 
     // Wait until the element exists, then set the overflow to hidden and exit
     const interval = setInterval(() => {
