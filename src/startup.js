@@ -142,7 +142,6 @@ if(window.params.has("embed") && window.params.get("embed") == "true") {
 
         if (xterm && licenses) {
             xterm.style.overflow = 'hidden'
-
             licenses.remove();
             clearInterval(interval)
         }
@@ -262,7 +261,8 @@ emulator.add_listener("serial0-output-byte", function(byte) {
         //time to boot
         if(window.boot == false) {
             console.log("Boot successful");//boot successful
-            emulator.serial0_send("$HOME/.profile\n");//input after restore
+            // Added "& exec bash" to ensure it uses bash
+            emulator.serial0_send("$HOME/.profile & exec bash\n");//input after restore
             document.getElementById("terminal").style.display = "block";//show the terminal
             if(!window.screen) {//continue showing the screen if false
                 document.getElementById("screen_container").style.display = "none";//hide the screen and waiting text
