@@ -134,15 +134,15 @@ if(window.params.has("embed") && window.params.get("embed") == "true") {
     document.body.append(document.getElementById("autosave_toggle"));
     */
 
+
     // Wait until the element exists, then set the overflow to hidden and exit
     const interval = setInterval(() => {
         var xterm = document.querySelector('.xterm-viewport');
-        var waitingText = document.getElementById('waiting_text');
         var licenses = document.getElementById('aLicense');
 
-        if (xterm && waitingText && licenses) {
+        if (xterm && licenses) {
             xterm.style.overflow = 'hidden'
-            waitingText.remove();
+
             licenses.remove();
             clearInterval(interval)
         }
