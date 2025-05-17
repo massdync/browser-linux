@@ -1,69 +1,73 @@
 <!DOCTYPE html>
-<head>
-<title>Browser Linux</title>
-<style type="text/css">
-body {
-background-color: black;
-color: white;
-}
-.statusbar {
-  position: absolute;
-  top: 6px;
-  right: 12px;
-  font-size: 14px;
-}
 
-.toolbox {
-  border: 1px outset white;
-  background-color: black;
-  width: 300px;
-}
-</style>
-<link rel="stylesheet" href="lib/xtermjs/xterm.css">
-<script src="lib/v86/libv86.js"></script>
-<script src="lib/xtermjs/xterm.js"></script>
-<script src="lib/localForage/localForage.js"></script>
+<head>
+  <title>Browser Linux</title>
+  <style type="text/css">
+    body {
+      background-color: black;
+      color: white;
+    }
+
+    .statusbar {
+      position: absolute;
+      top: 6px;
+      right: 12px;
+      font-size: 14px;
+    }
+
+    .toolbox {
+      border: 1px outset white;
+      background-color: black;
+      width: 300px;
+    }
+  </style>
+  <link rel="stylesheet" href="lib/xtermjs/xterm.css">
+  <script src="lib/v86/libv86.js"></script>
+  <script src="lib/xtermjs/xterm.js"></script>
+  <script src="lib/localForage/localForage.js"></script>
 </head>
+
 <body>
-<p class="statusbar" id="save_time"></p>
-<script src="startup.js" defer></script>
-<script src="buttons.js" defer></script>
-<h4 class="fluff">Welcome to Browser Linux</h4>
-<p id="waiting_text">
- Waiting for boot to complete, please wait . . . <br>
-</p>
-<div id="screen_container">
+  <p class="statusbar" id="save_time"></p>
+  <script src="startup.js" defer></script>
+  <script src="buttons.js" defer></script>
+  <h4 class="fluff">Welcome to Browser Linux</h4>
+  <p id="waiting_text">
+    Waiting for boot to complete, please wait . . . <br>
+  </p>
+  <div id="screen_container">
     <div style="white-space: pre; font: 14px monospace; line-height: 14px"></div>
     <canvas id="vga" style="display: none" onclick="emulator.lock_mouse()"></canvas>
-</div>
-<div id="terminal"></div>
-<h4 class="fluff">It's Linux, in a Browser</h4>
-<img class="fluff" id="toggle" src="icon/toolbox.png" onclick="toggleToolbox()" width="25px" height="25px"></img>
-<div id="toolbox_div" class="toolbox">
-<button id="save_restore" onclick="saveRestore()">save current point</button>
-<button id="fullscreen" onclick="fullscreen()">fullscreen</button>
-<button id="screenButton" onClick="toggleScreen()"> hide screen </button>
-<button id="pause_button" onclick="startStop()">pause</button>
-<button onclick="saveToFile()">save to file</button>
-<label>
-<hr>
-Send files to emulator
-<input id="upload_files" type="file" multiple>
-<p>Upload Path: </p><input type="text" value="/user" id="upload_path">
-<hr>
-<label>
-Restore from file: <input id="restore_file" type="file">
-</label>
-<hr>
-<p>web proxy</p><input type="test" value="wss://relay.widgetry.org/" id="proxy_setting"><button onclick="setProxyFromSettings()">save and reload</button>
-<hr>
-<button id="clear_save" onclick="delete_data()">delete saved data</button>
-<button id="autosave_toggle" onclick="toggle_autosave()">enable autosave</button>
-<button id="save" onclick="startAutosave()">save now</button>
-<p id="storage_error" style="display: none">Persistence has been disabled due to a web storage error</p>
-<p id="save_time"></p>
-</div>
-<p class="fluff" id="boot_time"></p>
-<a class="fluff" href="https://github.com/Darin755/browser-linux">Github</a>
-<a href="javascript.html" rel="jslicense">licenses</a>
+  </div>
+  <div id="terminal"></div>
+  <h4 class="fluff">It's Linux, in a Browser</h4>
+  <img class="fluff" id="toggle" src="icon/toolbox.png" onclick="toggleToolbox()" width="25px" height="25px"></img>
+  <div id="toolbox_div" class="toolbox">
+    <button id="save_restore" onclick="saveRestore()">save current point</button>
+    <button id="fullscreen" onclick="fullscreen()">fullscreen</button>
+    <button id="screenButton" onClick="toggleScreen()"> hide screen </button>
+    <button id="pause_button" onclick="startStop()">pause</button>
+    <button onclick="saveToFile()">save to file</button>
+    <label>
+      <hr>
+      Send files to emulator
+      <input id="upload_files" type="file" multiple>
+      <p>Upload Path: </p><input type="text" value="/user" id="upload_path">
+      <hr>
+      <label>
+        Restore from file: <input id="restore_file" type="file">
+      </label>
+      <hr>
+      <p>web proxy</p><input type="test" value="wss://relay.widgetry.org/" id="proxy_setting"><button
+        onclick="setProxyFromSettings()">save and reload</button>
+      <hr>
+      <button id="clear_save" onclick="delete_data()">delete saved data</button>
+      <button id="autosave_toggle" onclick="toggle_autosave()">enable autosave</button>
+      <button id="save" onclick="startAutosave()">save now</button>
+      <p id="storage_error" style="display: none">Persistence has been disabled due to a web storage error</p>
+      <p id="save_time"></p>
+  </div>
+  <p class="fluff" id="boot_time"></p>
+  <a class="fluff" href="https://github.com/Darin755/browser-linux">Github</a>
+  <a id="aLicense" href="javascript.html" rel="jslicense">licenses</a>
 </body>

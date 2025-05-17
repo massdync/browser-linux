@@ -136,12 +136,18 @@ if(window.params.has("embed") && window.params.get("embed") == "true") {
 
     // Wait until the element exists, then set the overflow to hidden and exit
     const interval = setInterval(() => {
-    const el = document.querySelector('.xterm-viewport');
-    if (el) {
-        el.style.overflow = 'hidden';
-        clearInterval(interval); // Stop checking
-    }
+        var xterm = document.querySelector('.xterm-viewport');
+        var waitingText = document.getElementById('waiting_text');
+        var licenses = document.getElementById('aLicense');
+
+        if (xterm && waitingText && licenses) {
+            xterm.style.overflow = 'hidden'
+            waitingText.remove();
+            licenses.remove();
+            clearInterval(interval)
+        }
     }, 100);
+
     window.persist = false;
 }
 //autosave restore
