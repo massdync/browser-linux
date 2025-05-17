@@ -128,9 +128,20 @@ if(window.params.has("embed") && window.params.get("embed") == "true") {
     for(var i = 0;i<fluffs.length;i++) {
         fluffs[i].style.display = "none";
     }
+    /*
     document.body.append(document.getElementById("save"));
     document.body.append(document.getElementById("clear_save"));
     document.body.append(document.getElementById("autosave_toggle"));
+    */
+
+    // Wait until the element exists, then set the overflow to hidden and exit
+    const interval = setInterval(() => {
+    const el = document.querySelector('.xterm-viewport');
+    if (el) {
+        el.style.overflow = 'hidden';
+        clearInterval(interval); // Stop checking
+    }
+    }, 100);
     window.persist = false;
 }
 //autosave restore
