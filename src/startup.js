@@ -133,22 +133,21 @@ if(window.params.has("embed") && window.params.get("embed") == "true") {
     document.body.append(document.getElementById("clear_save"));
     document.body.append(document.getElementById("autosave_toggle"));
     */
-    document.body.style.overflow = 'hidden';
 
+    document.body.style.overflow = 'hidden';
     // Wait until the element exists, then set the overflow to hidden and exit
     const interval = setInterval(() => {
         var xterm = document.querySelector('.xterm-viewport');
-        var licenses = document.getElementById('aLicense');
-
-        if (xterm && licenses) {
+        if (xterm) {
             xterm.style.overflow = 'hidden'
-            licenses.remove();
+            window.scrollTo(0, 0);
             clearInterval(interval)
         }
     }, 100);
 
     window.persist = false;
 }
+
 //autosave restore
 if(localStorage.getItem("autosave") == 'true') {
 		document.getElementById("autosave_toggle").innerHTML = "disable autosave";
